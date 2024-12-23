@@ -8,7 +8,7 @@ export default function InfoBlock({ data }) {
   return (
     <div className={`info ${reversed ? 'info--reversed' : ''}`}>
       <div className="info__image">
-        <Image src="/info-block/rectangle.png" fill={true} alt="Info Block" />
+        <Image src="/info-blocks/rectangle.png" fill={true} alt="Info Block" />
       </div>
 
       <div className="info__text">
