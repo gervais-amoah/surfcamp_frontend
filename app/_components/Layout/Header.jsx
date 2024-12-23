@@ -30,7 +30,7 @@ export default function Header() {
         {navItems.map((item) => (
           <li key={item.display}>
             <Link href={item.slug}>
-              <h5>{item.display}</h5>
+              <h5 className="header__nav-item">{item.display}</h5>
             </Link>
           </li>
         ))}

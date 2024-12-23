@@ -29,5 +29,9 @@
     gap: 4.6rem;
     list-style: none;
     font-family: $dm;
+
+    &-item {
+      font-weight: 100;
+    }
   }
 }
