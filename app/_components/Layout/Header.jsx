@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Header() {
   const navItems = [
-    { display: 'The Camp', slug: '/' },
-    { display: 'The Experience', slug: '/experience' },
-    { display: 'The Blog', slug: '/blog' },
+    { display: 'the camp.', slug: '/' },
+    { display: 'the experience.', slug: '/experience' },
+    { display: 'the blog.', slug: '/blog' },
   ];
   return (
     <header className="header">
