@@ -6,12 +6,7 @@ export default function HeroSection({ headline, imgSrc, theme = 'turquoise' }) {
   return (
     <section className="hero">
       <div className="hero__background">
-        <Image
-          src={imgSrc ?? '/assets/hero-home.png'}
-          width={300}
-          height={200}
-          alt="Hero Image"
-        />
+        <img src={imgSrc ?? '/assets/hero-home.png'} alt="Hero Image" />
       </div>
       <div className={`hero__headline hero__headline--${theme}`}>
         <h1>{headline ?? 'Headline missing...'}</h1>

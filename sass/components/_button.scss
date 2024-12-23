@@ -12,22 +12,22 @@
   }
 
   &--black {
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
   }
 
   &--turquoise {
     background-color: $turquoise;
-    color: white;
+    color: $white;
   }
 
   &--orange {
-    background-color: #ce822f;
-    color: white;
+    background-color: $orange;
+    color: $white;
   }
 
   &--beige {
     background-color: $beige;
-    color: white;
+    color: $white;
   }
 }
