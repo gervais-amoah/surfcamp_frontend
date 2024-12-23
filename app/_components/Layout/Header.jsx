@@ -1,14 +1,21 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const path = usePathname();
+
   const navItems = [
     { display: 'the camp.', slug: '/' },
     { display: 'the experience.', slug: '/experience' },
     { display: 'the blog.', slug: '/blog' },
   ];
   return (
-    <header className="header">
+    <header
+      className={`header ${path === '/experience' ? 'header--light' : ''}`}
+    >
       <div className="header__logo">
         <Image
           alt="Logo"
