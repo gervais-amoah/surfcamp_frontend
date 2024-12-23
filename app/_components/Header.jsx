@@ -9,13 +9,15 @@ export default function Header() {
   ];
   return (
     <header className="header">
-      <Image
-        className="header__logo"
-        alt="Logo"
-        src="/assets/logo.svg"
-        width={50}
-        height={78}
-      />
+      <div className="header__logo">
+        <Image
+          alt="Logo"
+          src="/assets/logo.svg"
+          fill={true}
+          priority={true}
+          sizes="(max-width: 50px)"
+        />
+      </div>
 
       <ul className="header__nav">
         {navItems.map((item) => (

@@ -1,0 +1,33 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4.8rem;
+  z-index: 10;
+
+  &--light {
+    color: white;
+
+    & .header__logo {
+      filter: invert(99%) sepia(3%) saturate(825%) hue-rotate(200deg)
+        brightness(118%) contrast(100%);
+    }
+  }
+
+  &__logo {
+    position: relative;
+    width: 5rem;
+    height: 7rem;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 4.6rem;
+    list-style: none;
+    font-family: $dm;
+  }
+}
