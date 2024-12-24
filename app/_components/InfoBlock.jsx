@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function InfoBlock({ data }) {
   const { headline, text, button, imageUrl, reversed } = data;
@@ -13,7 +14,7 @@ export default function InfoBlock({ data }) {
 
       <div className="info__text">
         <h2 className="info__headline">{headline}</h2>
-        <p className="copy">{text}</p>
+        <ReactMarkdown className="copy">{text}</ReactMarkdown>
         {button && (
           <div className="info__button">
             <Link href={button.slug}>
