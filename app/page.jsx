@@ -1,6 +1,6 @@
 import HeroSection from '@/app/_components/HeroSection';
 import InfoBlock from '@/app/_components/InfoBlock';
-import { HERO_HEADLINE } from '@/constants/home';
+import { HOME_HEADLINE } from '@/constants/headlines';
 import { fetchDataFromAPI, formatInfoBlocks } from '@/utils/strapi.utils';
 
 export default async function Home() {
@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <>
-      <HeroSection headline={HERO_HEADLINE} />
+      <HeroSection headline={HOME_HEADLINE} />
       {infoBlocks.map((block) => (
         <InfoBlock data={block} key={block.id} />
       ))}
