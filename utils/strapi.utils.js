@@ -1,8 +1,11 @@
-const BASE_URL =
+const API_URL =
   process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337/api';
 
+const IMG_URL =
+  process.env.NEXT_PUBLIC_STRAPI_GALLERY_URL || 'http://127.0.0.1:1337';
+
 export async function fetchDataFromAPI(route) {
-  const url = `${BASE_URL}/${route}`;
+  const url = `${API_URL}/${route}`;
 
   try {
     const data = await fetch(url).then((res) => res.json());
@@ -13,4 +16,15 @@ export async function fetchDataFromAPI(route) {
     console.error(error);
     throw new Error(`Failed to fetch data from ${url}`);
   }
+}
+
+export function formatInfoBlocks(data) {
+  return data.map((block) => ({
+    id: block.id,
+    headline: block.attributes.headline,
+    text: block.attributes.body,
+    imageUrl: IMG_URL + block.attributes.image.data.attributes.url,
+    reversed: block.attributes.ShowImageOnRight,
+    button: block.attributes.button,
+  }));
 }
