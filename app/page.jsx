@@ -1,10 +1,21 @@
 import HeroSection from '@/app/_components/HeroSection';
 import InfoBlock from '@/app/_components/InfoBlock';
-import { fetchData } from '@/utils/strapi.utils';
+import { fetchDataFromAPI } from '@/utils/strapi.utils';
+
+const IMG_URL =
+  process.env.NEXT_PUBLIC_STRAPI_GALLERY_URL || 'http://127.0.0.1:1337';
 
 export default async function Home() {
-  const data = await fetchData('infoblocks-experience?populate=deep');
-  console.log('Formated data', data);
+  const data = await fetchDataFromAPI('infoblocks-landing?populate=deep');
+  const infoBlocks = data.map((block) => ({
+    id: block.id,
+    headline: block.attributes.headline,
+    text: block.attributes.body,
+    imageUrl: IMG_URL + block.attributes.image.data.attributes.url,
+    reversed: block.attributes.ShowImageOnRight,
+    button: block.attributes.button,
+  }));
+  console.log('Formated data', infoBlocks[0]);
 
   const heroHeadline = (
     <>
@@ -42,8 +53,9 @@ export default async function Home() {
   return (
     <>
       <HeroSection headline={heroHeadline} />
-      <InfoBlock data={infoBlockData} />
-      <InfoBlock data={{ ...infoBlockData, reversed: true }} />
+      {infoBlocks.map((block) => (
+        <InfoBlock data={block} key={block.id} />
+      ))}
     </>
   );
 }
