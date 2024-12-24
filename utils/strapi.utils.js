@@ -8,7 +8,9 @@ export async function fetchDataFromAPI(route) {
   const url = `${API_URL}/${route}`;
 
   try {
-    const data = await fetch(url).then((res) => res.json());
+    const data = await fetch(url, {
+      cache: 'no-cache',
+    }).then((res) => res.json());
     console.log('DATA', data);
 
     return data?.data?.attributes?.info_blocks?.data || [];
