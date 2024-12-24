@@ -1,7 +1,11 @@
 import HeroSection from '@/app/_components/HeroSection';
 import InfoBlock from '@/app/_components/InfoBlock';
+import { fetchData } from '@/utils/strapi.utils';
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchData('infoblocks-experience?populate=deep');
+  console.log('Formated data', data);
+
   const heroHeadline = (
     <>
       <span>barrel.</span>
