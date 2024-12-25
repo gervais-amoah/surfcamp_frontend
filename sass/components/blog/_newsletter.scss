@@ -23,6 +23,10 @@
     height: 6.4rem;
     border-radius: 1.8rem 0px 0px 1.8rem;
     padding-left: 2.1rem;
+
+    &:focus {
+      outline: $brown solid 2px;
+    }
   }
 
   &__subscribe {
@@ -30,6 +34,10 @@
     height: 6.4rem;
     width: 23rem;
     border-radius: 0px 1.8rem 1.8rem 0px;
+
+    &:focus {
+      outline: $dark-turquoise solid 2px;
+    }
   }
 
   &__thanks {
