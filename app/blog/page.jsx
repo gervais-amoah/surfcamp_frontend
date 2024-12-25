@@ -1,6 +1,7 @@
 import React from 'react';
 import HighlightArcticle from '@/app/_components/Blog/HighlightArcticle';
 import SubscribeToNewsletter from '@/app/_components/Blog/SubscribeToNewsletter';
+import FeaturedItems from '@/app/_components/FeaturedItems/FeaturedItems';
 
 export default function BlogPage() {
   const highlightArticliData = {
@@ -19,10 +20,21 @@ export default function BlogPage() {
     featuredImage: '/assets/hero-experience.png',
   };
 
+  const featuredItems = [
+    {
+      headline:
+        'surfboard shaping and design behind the scenes of crafting the perfect board',
+      slug: 'takeoff',
+      date: 'Monday, June 05, 2023',
+      featuredImage: '/assets/hero-experience.png',
+    },
+  ];
+
   return (
     <div className="blog-page">
       <HighlightArcticle data={highlightArticliData} />
       <SubscribeToNewsletter />
+      <FeaturedItems items={featuredItems} />
     </div>
   );
 }
