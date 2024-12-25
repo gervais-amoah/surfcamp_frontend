@@ -3,7 +3,7 @@ import HighlightArcticle from '@/app/_components/Blog/HighlightArcticle';
 
 export default function BlogPage() {
   const highlightArticliData = {
-    headline: 'Headline',
+    headline: '3 tips for a super fast takeoff',
     excerpt: (
       <>
         Improving your take-off phase in surfing is a fundamental step toward
