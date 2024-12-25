@@ -1,5 +1,6 @@
 import React from 'react';
 import HighlightArcticle from '@/app/_components/Blog/HighlightArcticle';
+import SubscribeToNewsletter from '@/app/_components/Blog/SubscribeToNewsletter';
 
 export default function BlogPage() {
   const highlightArticliData = {
@@ -21,6 +22,7 @@ export default function BlogPage() {
   return (
     <div className="blog-page">
       <HighlightArcticle data={highlightArticliData} />
+      <SubscribeToNewsletter />
     </div>
   );
 }
