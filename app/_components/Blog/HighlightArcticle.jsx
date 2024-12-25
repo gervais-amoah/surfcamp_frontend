@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -10,11 +11,15 @@ export default function HighlightArcticle({ data }) {
         <h3>{headline}</h3>
         <p className="copy">{excerpt}</p>
         <Link href={`blog/${slug}`}>
-          <button className="btn btn--medium">Read more</button>
+          <button className="btn btn--medium btn--turquoise">Read more</button>
         </Link>
       </div>
 
-      <img src={featuredImage} alt="hero" />
+      <img
+        className="highlight-article__image"
+        src={featuredImage}
+        alt="hero"
+      />
     </article>
   );
 }

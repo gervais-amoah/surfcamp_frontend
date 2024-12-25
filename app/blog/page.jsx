@@ -19,7 +19,7 @@ export default function BlogPage() {
   };
 
   return (
-    <div>
+    <div className="blog-page">
       <HighlightArcticle data={highlightArticliData} />
     </div>
   );
