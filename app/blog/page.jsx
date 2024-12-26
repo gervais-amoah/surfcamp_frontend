@@ -6,9 +6,8 @@ import { fetchDataFromAPI, formatBlogArticles } from '@/utils/strapi.utils';
 export default async function BlogPage() {
   const data = await fetchDataFromAPI('blog-articles?populate=deep');
   const articles = formatBlogArticles(data);
-  const highlightedArticle = articles.find(
-    (article) => article.isHighlightArcticle
-  );
+  const highlightedArticle =
+    articles.find((article) => article.isHighlightArcticle) || articles[0];
   const articlesToShow = articles.filter(
     (article) => !article.isHighlightArcticle
   );
