@@ -13,13 +13,22 @@ export async function fetchDataFromAPI(route) {
     const data = await fetch(url, {
       cache: 'no-cache',
     }).then((res) => res.json());
-    console.log('DATA', data);
 
     return data?.data || [];
   } catch (error) {
     console.error(error);
     throw new Error(`Failed to fetch data from ${url}`);
   }
+}
+
+export async function fetchInfoBlocks() {
+  const data = await fetchDataFromAPI('infoblocks-landing?populate=deep');
+  return formatInfoBlocks(data);
+}
+
+export async function fetchBlogArticles() {
+  const data = await fetchDataFromAPI('blog-articles?populate=deep');
+  return formatBlogArticles(data);
 }
 
 export function formatInfoBlocks(data) {
