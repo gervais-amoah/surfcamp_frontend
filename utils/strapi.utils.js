@@ -13,7 +13,7 @@ export async function fetchDataFromAPI(route) {
     }).then((res) => res.json());
     console.log('DATA', data);
 
-    return data?.data?.attributes?.info_blocks?.data || [];
+    return data?.data || [];
   } catch (error) {
     console.error(error);
     throw new Error(`Failed to fetch data from ${url}`);
@@ -21,12 +21,26 @@ export async function fetchDataFromAPI(route) {
 }
 
 export function formatInfoBlocks(data) {
-  return data.map((block) => ({
+  const rawArr = data?.attributes?.info_blocks?.data;
+  return rawArr.map((block) => ({
     id: block.id,
     headline: block.attributes.headline,
     text: block.attributes.body,
     imageUrl: IMG_URL + block.attributes.image.data.attributes.url,
     reversed: block.attributes.ShowImageOnRight,
     button: block.attributes.button,
+  }));
+}
+
+export function formatBlogArticles(data) {
+  return data.map((article) => ({
+    id: article.id,
+    headline: article.attributes.headline,
+    excerpt: article.attributes.excerpt,
+    slug: article.attributes.slug,
+    date: article.attributes.publishedAt,
+    isHighlightArcticle: article.attributes.isHighlightArcticle,
+    featuredImage:
+      IMG_URL + article.attributes.featuredImage.data.attributes.url,
   }));
 }
