@@ -1,40 +1,23 @@
-import React from 'react';
 import HighlightArcticle from '@/app/_components/Blog/HighlightArcticle';
 import SubscribeToNewsletter from '@/app/_components/Blog/SubscribeToNewsletter';
 import FeaturedItems from '@/app/_components/FeaturedItems/FeaturedItems';
+import { fetchDataFromAPI, formatBlogArticles } from '@/utils/strapi.utils';
 
-export default function BlogPage() {
-  const highlightArticliData = {
-    headline: '3 tips for a super fast takeoff',
-    excerpt: (
-      <>
-        Improving your take-off phase in surfing is a fundamental step toward
-        riding waves with more confidence and style. Improving your take-off
-        phase is a gradual process, and it may take time to master. Be patient,
-        stay committed to practice, and enjoy the journey of becoming a better
-        surfer. With dedication and persistence, you&apos;ll see progress and
-        have more enjoyable rides. Here is how:
-      </>
-    ),
-    slug: 'post-slug',
-    featuredImage: '/assets/hero-experience.png',
-  };
-
-  const featuredItems = [
-    {
-      headline:
-        'surfboard shaping and design behind the scenes of crafting the perfect board',
-      slug: 'takeoff',
-      date: 'Monday, June 05, 2023',
-      featuredImage: '/assets/hero-experience.png',
-    },
-  ];
+export default async function BlogPage() {
+  const data = await fetchDataFromAPI('blog-articles?populate=deep');
+  const articles = formatBlogArticles(data);
+  const highlightedArticle = articles.find(
+    (article) => article.isHighlightArcticle
+  );
+  const articlesToShow = articles.filter(
+    (article) => !article.isHighlightArcticle
+  );
 
   return (
     <div className="blog-page">
-      <HighlightArcticle data={highlightArticliData} />
+      <HighlightArcticle data={highlightedArticle} />
       <SubscribeToNewsletter />
-      <FeaturedItems items={featuredItems} />
+      <FeaturedItems items={articlesToShow} />
     </div>
   );
 }
