@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const API_URL =
   process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337/api';
 
@@ -33,14 +35,19 @@ export function formatInfoBlocks(data) {
 }
 
 export function formatBlogArticles(data) {
-  return data.map((article) => ({
-    id: article.id,
-    headline: article.attributes.headline,
-    excerpt: article.attributes.excerpt,
-    slug: article.attributes.slug,
-    date: article.attributes.publishedAt,
-    isHighlightArcticle: article.attributes.isHighlightArcticle,
-    featuredImage:
-      IMG_URL + article.attributes.featuredImage.data.attributes.url,
-  }));
+  return data
+    .sort(
+      (a, b) =>
+        new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt)
+    )
+    .map((article) => ({
+      id: article.id,
+      headline: article.attributes.headline,
+      excerpt: article.attributes.excerpt,
+      slug: article.attributes.slug,
+      date: moment(article.attributes.publishedAt).format('MMMM Do, YYYY'),
+      isHighlightArcticle: article.attributes.isHighlightArcticle,
+      featuredImage:
+        IMG_URL + article.attributes.featuredImage.data.attributes.url,
+    }));
 }
