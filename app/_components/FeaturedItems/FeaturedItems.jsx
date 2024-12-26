@@ -1,8 +1,20 @@
+'use client';
 import Link from 'next/link';
-import React from 'react';
+import { useState } from 'react';
 import FeaturedArticle from './FeaturedArticle';
 
 export default function FeaturedItems({ headline, items }) {
+  const [itemNumber, setItemNumber] = useState(3);
+
+  const increaseNumber = () => {
+    setItemNumber((prev) => {
+      if (prev + 3 > items.length) {
+        return items.length;
+      }
+      return prev + 3;
+    });
+  };
+
   return (
     <section className="featured-items">
       <h3 className="featured-items__headline">
@@ -10,14 +22,21 @@ export default function FeaturedItems({ headline, items }) {
       </h3>
 
       <div className="featured-items__container">
-        {items.map((item) => (
+        {items.slice(0, itemNumber).map((item) => (
           <FeaturedArticle article={item} key={item.slug} />
         ))}
       </div>
 
-      <Link href="/blog">
-        <button className="btn btn--medium btn--turquoise">See more</button>
-      </Link>
+      {items.length > itemNumber ? (
+        <Link href="/blog">
+          <button
+            className="btn btn--medium btn--turquoise"
+            onClick={increaseNumber}
+          >
+            See more
+          </button>
+        </Link>
+      ) : null}
     </section>
   );
 }
