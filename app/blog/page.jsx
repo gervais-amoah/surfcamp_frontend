@@ -9,7 +9,7 @@ export default async function BlogPage() {
   const highlightedArticle =
     articles.find((article) => article.isHighlightArcticle) || articles[0];
   const articlesToShow = articles.filter(
-    (article) => !article.isHighlightArcticle
+    (article) => article.id !== highlightedArticle.id
   );
 
   return (
