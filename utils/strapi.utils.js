@@ -45,7 +45,7 @@ export function formatBlogArticles(data) {
       headline: article.attributes.headline,
       excerpt: article.attributes.excerpt,
       slug: article.attributes.slug,
-      date: moment(article.attributes.publishedAt).format('MMMM Do, YYYY'),
+      date: moment(article.attributes.publishedAt).format('dddd, Do MMMM YYYY'),
       isHighlightArcticle: article.attributes.isHighlightArcticle,
       featuredImage:
         IMG_URL + article.attributes.featuredImage.data.attributes.url,
