@@ -52,11 +52,13 @@ export function formatBlogArticles(data) {
     .map((article) => ({
       id: article.id,
       headline: article.attributes.headline,
+      author: article.attributes.author,
       excerpt: article.attributes.excerpt,
       slug: article.attributes.slug,
       date: moment(article.attributes.publishedAt).format('dddd, Do MMMM YYYY'),
       isHighlightArcticle: article.attributes.isHighlightArcticle,
       featuredImage:
         IMG_URL + article.attributes.featuredImage.data.attributes.url,
+      articleContent: article.attributes.articleContent,
     }));
 }
