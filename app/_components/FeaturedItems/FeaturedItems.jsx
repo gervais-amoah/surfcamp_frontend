@@ -28,14 +28,12 @@ export default function FeaturedItems({ headline, items }) {
       </div>
 
       {items.length > itemNumber ? (
-        <Link href="/blog">
-          <button
-            className="btn btn--medium btn--turquoise"
-            onClick={increaseNumber}
-          >
-            See more
-          </button>
-        </Link>
+        <button
+          className="btn btn--medium btn--turquoise"
+          onClick={increaseNumber}
+        >
+          See more
+        </button>
       ) : null}
     </section>
   );
