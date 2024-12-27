@@ -1,4 +1,3 @@
-import { getImageUrl } from '@/utils/strapi.utils';
 import ArticleHeadline from './ArticleHeadline';
 import ArticleLandscapeImage from './ArticleLandscapeImage';
 import ArticleParagraph from './ArticleParagraph';
@@ -9,9 +8,8 @@ export default function ArticleComponent({ component, content }) {
   const componentTypeList = {
     headline: 'headline',
     paragraph: 'paragraph',
-    paragraphWithImage: 'paragraph-with-image',
-    image: 'image',
     landscapeImage: 'landscape-image',
+    paragraphWithImage: 'paragraph-with-image',
   };
 
   console.log('component:', component);
@@ -29,9 +27,6 @@ export default function ArticleComponent({ component, content }) {
 
     case componentTypeList.paragraphWithImage:
       return <ParagraphWithImage content={content} />;
-
-    case componentTypeList.image:
-      return <img src={getImageUrl(content.image)} alt={content.image.alt} />;
 
     case componentTypeList.landscapeImage:
       return <ArticleLandscapeImage content={content} />;
