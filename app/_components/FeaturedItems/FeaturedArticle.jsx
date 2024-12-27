@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function FeaturedArticle({ article }) {
   return (
-    <Link href={`blog/${article.slug}`} className="featured-items__article">
+    <Link href={`/blog/${article.slug}`} className="featured-items__article">
       <div className="featured-items__article-img">
         <Image
           src={article.featuredImage}
