@@ -10,7 +10,9 @@ export default async function BlogSlugPage({ params }) {
   return (
     <div>
       <ArticleIntro article={article} />
-      <ArticleOverview article={article} />
+      <section className="article-section">
+        <ArticleOverview article={article} />
+      </section>
     </div>
   );
 }
