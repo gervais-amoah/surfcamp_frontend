@@ -1,4 +1,5 @@
 import ArticleIntro from '@/app/_components/Blog/ArticleIntro';
+import ArticleOverview from '@/app/_components/Blog/ArticleOverview';
 import { fetchBlogArticles, fetchDataFromAPI } from '@/utils/strapi.utils';
 
 export default async function BlogSlugPage({ params }) {
@@ -9,6 +10,7 @@ export default async function BlogSlugPage({ params }) {
   return (
     <div>
       <ArticleIntro article={article} />
+      <ArticleOverview article={article} />
     </div>
   );
 }

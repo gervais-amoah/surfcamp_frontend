@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ArticleIntro({ article }) {
   return (
     <div className="article-intro">
