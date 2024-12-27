@@ -1,3 +1,4 @@
+import ArticleComponent from '@/app/_components/Blog/ArticleComponent';
 import ArticleIntro from '@/app/_components/Blog/ArticleIntro';
 import ArticleOverview from '@/app/_components/Blog/ArticleOverview';
 import { fetchBlogArticles, fetchDataFromAPI } from '@/utils/strapi.utils';
@@ -12,6 +13,13 @@ export default async function BlogSlugPage({ params }) {
       <ArticleIntro article={article} />
       <section className="article-section">
         <ArticleOverview article={article} />
+        {article.articleContent.map((component, index) => (
+          <ArticleComponent
+            key={component.id}
+            component={component.__component}
+            content={component}
+          />
+        ))}
       </section>
     </div>
   );
