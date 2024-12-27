@@ -3,7 +3,7 @@ import moment from 'moment';
 const API_URL =
   process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337/api';
 
-const IMG_URL =
+export const IMG_URL =
   process.env.NEXT_PUBLIC_STRAPI_GALLERY_URL || 'http://127.0.0.1:1337';
 
 export async function fetchDataFromAPI(route) {
@@ -61,4 +61,8 @@ export function formatBlogArticles(data) {
         IMG_URL + article.attributes.featuredImage.data.attributes.url,
       articleContent: article.attributes.articleContent,
     }));
+}
+
+export function getImageUrl(image) {
+  return IMG_URL + image.data.attributes.url;
 }
