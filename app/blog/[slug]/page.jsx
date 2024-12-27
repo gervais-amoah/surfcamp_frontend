@@ -4,7 +4,6 @@ import { fetchBlogArticles, fetchDataFromAPI } from '@/utils/strapi.utils';
 export default async function BlogSlugPage({ params }) {
   const { slug } = params;
   const articles = await fetchBlogArticles();
-  // console.log(articles);
   const article = articles.find((article) => article.slug === slug);
 
   return (
