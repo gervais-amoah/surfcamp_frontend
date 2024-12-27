@@ -1,12 +1,14 @@
 import ArticleComponent from '@/app/_components/Blog/ArticleComponent';
 import ArticleIntro from '@/app/_components/Blog/ArticleIntro';
 import ArticleOverview from '@/app/_components/Blog/ArticleOverview';
+import FeaturedItems from '@/app/_components/FeaturedItems/FeaturedItems';
 import { fetchBlogArticles, fetchDataFromAPI } from '@/utils/strapi.utils';
 
 export default async function BlogSlugPage({ params }) {
   const { slug } = params;
   const articles = await fetchBlogArticles();
   const article = articles.find((article) => article.slug === slug);
+  const moreArticles = articles.filter((article) => article.slug !== slug);
 
   return (
     <div>
@@ -20,6 +22,10 @@ export default async function BlogSlugPage({ params }) {
             content={component}
           />
         ))}
+        <FeaturedItems
+          headline="Explore our other articles"
+          items={moreArticles}
+        />
       </section>
     </div>
   );
