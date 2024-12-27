@@ -1,8 +1,8 @@
-import { getImageUrl, IMG_URL } from '@/utils/strapi.utils';
-import React from 'react';
+import { getImageUrl } from '@/utils/strapi.utils';
 import ArticleHeadline from './ArticleHeadline';
-import ParagraphWithImage from './ParagraphWithImage';
+import ArticleLandscapeImage from './ArticleLandscapeImage';
 import ArticleParagraph from './ArticleParagraph';
+import ParagraphWithImage from './ParagraphWithImage';
 
 export default function ArticleComponent({ component, content }) {
   const componentType = component.split('.')[1];
@@ -13,6 +13,8 @@ export default function ArticleComponent({ component, content }) {
     image: 'image',
     landscapeImage: 'landscape-image',
   };
+
+  console.log('component:', component);
 
   if (!componentType) {
     return <p>No component found</p>;
@@ -32,16 +34,9 @@ export default function ArticleComponent({ component, content }) {
       return <img src={getImageUrl(content.image)} alt={content.image.alt} />;
 
     case componentTypeList.landscapeImage:
-      return <img src={getImageUrl(content.image)} alt={content.image.alt} />;
+      return <ArticleLandscapeImage content={content} />;
 
     default:
       return <p>No component found</p>;
   }
-
-  return (
-    <div>
-      <h3>{componentType}</h3>
-      <p>{JSON.stringify(content, null, 2)}</p>
-    </div>
-  );
 }
