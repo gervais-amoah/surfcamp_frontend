@@ -2,6 +2,7 @@ import { getImageUrl, IMG_URL } from '@/utils/strapi.utils';
 import React from 'react';
 import ArticleHeadline from './ArticleHeadline';
 import ParagraphWithImage from './ParagraphWithImage';
+import ArticleParagraph from './ArticleParagraph';
 
 export default function ArticleComponent({ component, content }) {
   const componentType = component.split('.')[1];
@@ -19,18 +20,20 @@ export default function ArticleComponent({ component, content }) {
 
   switch (componentType) {
     case componentTypeList.headline:
-      return (
-        <ArticleHeadline headline={content.headline} slug={content.slug} />
-      );
+      return <ArticleHeadline content={content} />;
 
     case componentTypeList.paragraph:
-      return <p>{content.paragraph}</p>;
+      return <ArticleParagraph content={content} />;
+
     case componentTypeList.paragraphWithImage:
       return <ParagraphWithImage content={content} />;
+
     case componentTypeList.image:
       return <img src={getImageUrl(content.image)} alt={content.image.alt} />;
+
     case componentTypeList.landscapeImage:
       return <img src={getImageUrl(content.image)} alt={content.image.alt} />;
+
     default:
       return <p>No component found</p>;
   }

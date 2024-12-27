@@ -1,5 +1,4 @@
 import { getImageUrl } from '@/utils/strapi.utils';
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export default function ParagraphWithImage({ content }) {
