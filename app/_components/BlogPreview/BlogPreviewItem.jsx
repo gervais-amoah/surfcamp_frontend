@@ -8,7 +8,7 @@ export default function BlogPreviewItem({ article }) {
         <div className="blog-preview__image">
           <img src={featuredImage} alt={headline} />
         </div>
-        <h5 className="blog-preview__headline">{headline}</h5>
+        <h5 className="blog-preview__title">{headline}</h5>
         <p className="copy-small">
           {author} - {date}
         </p>
