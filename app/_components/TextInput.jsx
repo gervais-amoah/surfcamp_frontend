@@ -6,6 +6,7 @@ export default function TextInput({
   label,
   value,
   onChange,
+  isRequired,
 }) {
   return (
     <div className="input__container">
@@ -18,6 +19,7 @@ export default function TextInput({
         name={inputName}
         value={value}
         onChange={onChange}
+        required={isRequired}
         className="input input__text input--beige"
       />
     </div>

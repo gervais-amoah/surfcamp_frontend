@@ -25,6 +25,7 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
       <form action="#" className="signup-form__form">
         <div className="signup-form__name-container">
           <TextInput
+            isRequired={true}
             inputName="firstName"
             inputType="text"
             label="First Name"
@@ -32,6 +33,7 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
             onChange={onChange}
           />
           <TextInput
+            isRequired={true}
             inputName="lastName"
             inputType="text"
             label="Last Name"
@@ -40,6 +42,7 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
           />
         </div>
         <TextInput
+          isRequired={true}
           inputName="email"
           inputType="email"
           label="Your e-mail address"
@@ -47,6 +50,7 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
           onChange={onChange}
         />
         <TextInput
+          isRequired={true}
           inputName="phone"
           inputType="phone"
           label="Your telephone number"
