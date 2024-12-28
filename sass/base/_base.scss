@@ -64,3 +64,9 @@ html {
 .bold {
   font-weight: bold;
 }
+
+.error-message {
+  color: $red;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+}
