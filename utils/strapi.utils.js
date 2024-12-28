@@ -70,6 +70,8 @@ export async function fetchSingleEvent(eventID) {
     description,
     startingDate,
     endDate,
+    singlePrice,
+    sharedPrice,
     imageUrl,
   };
 }
