@@ -1,20 +1,44 @@
 import SignupForm from '@/app/_components/Events/SignupForm';
 import { REVALIDATE_TIME } from '@/utils/constants';
 import { fetchDataFromAPI, fetchSingleEvent } from '@/utils/strapi.utils';
+import ReactMarkdown from 'react-markdown';
 
 export default async function SingleEventPage({ params }) {
   const { eventID } = params;
-  const { name, description, startingDate, endDate, imageUrl } =
-    await fetchSingleEvent(eventID);
+  const {
+    name,
+    description,
+    startingDate,
+    endDate,
+    singlePrice,
+    sharedPrice,
+    imageUrl,
+  } = await fetchSingleEvent(eventID);
+
+  const infoText = (
+    <ReactMarkdown className="copy">{description}</ReactMarkdown>
+  );
+
+  const pricing = {
+    singlePrice,
+    sharedPrice,
+  };
+
+  const date = {
+    start: startingDate,
+    end: endDate,
+  };
 
   return (
     <div className="events-page">
-      <SignupForm headline={name} infoText={description} />
-      <ul>
-        <li>Start Date: {startingDate}</li>
-        <li>End Date: {endDate}</li>
-      </ul>
-      <img src={imageUrl} alt={name} width={300} />
+      <SignupForm
+        headline={name}
+        infoText={infoText}
+        btnLabel="Sign up"
+        pricing={pricing}
+        date={date}
+        featuredImage={imageUrl}
+      />
     </div>
   );
 }
