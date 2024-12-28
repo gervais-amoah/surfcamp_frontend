@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { API_URL, IMG_URL } from './constants';
+import qs from 'qs';
 
 export async function fetchDataFromAPI(route) {
   const url = `${API_URL}/${route}`;
@@ -97,4 +98,32 @@ export function generateEventSignupPayload(formData, eventID) {
 
 export function getImageUrl(image) {
   return IMG_URL + image.data.attributes.url;
+}
+
+export async function fetchAllFutureEvents(limit) {
+  const query = qs.stringify(
+    {
+      pagination: {
+        start: 0,
+        limit: limit || 12,
+      },
+      filters: {
+        startingDate: {
+          $gt: new Date(),
+        },
+      },
+      sort: ['startingDate:asc'],
+      populate: {
+        image: {
+          populate: '*',
+        },
+      },
+    },
+    { encodeValuesOnly: true }
+  );
+
+  const res = await fetch(`${API_URL}/events?${query}`).then((res) =>
+    res.json()
+  );
+  return res.data;
 }

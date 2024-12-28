@@ -1,7 +1,7 @@
 import SignupForm from '@/app/_components/Events/SignupForm';
-import { API_URL } from '@/utils/constants';
+import { fetchAllFutureEvents } from '@/utils/strapi.utils';
 
-export default function EventsPage() {
+export default async function EventsPage() {
   const headline = 'You want to stay tuned for our events?';
   const infoText = (
     <>
@@ -42,9 +42,12 @@ export default function EventsPage() {
     </>
   );
 
+  const allFutureEvents = await fetchAllFutureEvents();
+
   return (
     <div className="events-page">
       <SignupForm headline={headline} infoText={infoText} />
+      <p>{JSON.stringify(allFutureEvents)}</p>
     </div>
   );
 }
