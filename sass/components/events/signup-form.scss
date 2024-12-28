@@ -63,5 +63,9 @@
     margin-bottom: 4rem;
     border-radius: 2rem;
     overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
   }
 }
