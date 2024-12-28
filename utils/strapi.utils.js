@@ -61,7 +61,15 @@ export function formatBlogArticles(data) {
 export async function fetchSingleEvent(eventID) {
   const eventData = await fetchDataFromAPI(`events/${eventID}?populate=deep`);
   const {
-    attributes: { name, description, startingDate, endDate, image },
+    attributes: {
+      name,
+      description,
+      startingDate,
+      singlePrice,
+      sharedPrice,
+      endDate,
+      image,
+    },
   } = eventData;
   const imageUrl = getImageUrl(image);
 
