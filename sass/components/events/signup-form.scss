@@ -45,7 +45,8 @@
     margin-top: 1.6rem;
   }
 
-  &__pricing {
+  &__pricing,
+  &__date {
     & h3 {
       margin-top: 6rem;
       margin-bottom: 2.4rem;
@@ -53,5 +54,14 @@
     & p:first-of-type {
       margin-bottom: 8px;
     }
+  }
+
+  &__image {
+    width: 100%;
+    height: 30rem;
+    position: relative;
+    margin-bottom: 4rem;
+    border-radius: 2rem;
+    overflow: hidden;
   }
 }

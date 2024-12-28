@@ -76,8 +76,8 @@ export async function fetchSingleEvent(eventID) {
   return {
     name,
     description,
-    startingDate,
-    endDate,
+    startingDate: moment(startingDate).format('MMMM Do, YYYY'),
+    endDate: moment(endDate).format('MMMM Do, YYYY'),
     singlePrice,
     sharedPrice,
     imageUrl,
