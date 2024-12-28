@@ -2,6 +2,7 @@ import ArticleComponent from '@/app/_components/Blog/ArticleComponent';
 import ArticleIntro from '@/app/_components/Blog/ArticleIntro';
 import ArticleOverview from '@/app/_components/Blog/ArticleOverview';
 import FeaturedItems from '@/app/_components/FeaturedItems/FeaturedItems';
+import { REVALIDATE_TIME } from '@/utils/constants';
 import { fetchBlogArticles, fetchDataFromAPI } from '@/utils/strapi.utils';
 
 export default async function BlogSlugPage({ params }) {
@@ -39,4 +40,4 @@ export async function generateStaticParams() {
   }));
 }
 
-export const revalidate = 60 * 60 * 24; // 24 hours
+export const revalidate = REVALIDATE_TIME; // 24 hours

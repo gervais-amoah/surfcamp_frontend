@@ -1,7 +1,7 @@
 'use client';
 
+import { API_URL } from '@/utils/constants';
 import { useState } from 'react';
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
 export default function SubscribeToNewsletter() {
   const [email, setEmail] = useState('');

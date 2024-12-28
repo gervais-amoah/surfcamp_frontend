@@ -1,10 +1,5 @@
 import moment from 'moment';
-
-const API_URL =
-  process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://127.0.0.1:1337/api';
-
-export const IMG_URL =
-  process.env.NEXT_PUBLIC_STRAPI_GALLERY_URL || 'http://127.0.0.1:1337';
+import { API_URL, IMG_URL } from './constants';
 
 export async function fetchDataFromAPI(route) {
   const url = `${API_URL}/${route}`;

@@ -1,5 +1,6 @@
 'use client';
 
+import { API_URL } from '@/utils/constants';
 import { useState } from 'react';
 import TextInput from '../TextInput';
 
@@ -15,6 +16,30 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    // send data to strapi
+    // 1. create new participant with general interest
+    const participantObj = {
+      data: {
+        email: formData.email,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone,
+        isGeneralInterest: true,
+      },
+    };
+    const participant = await fetch(API_URL + '/participants', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(participantObj),
+    });
+    // 2. create new newsletter
+  };
+
   return (
     <section className="signup-form">
       <div className="signup-form__info">
@@ -22,7 +47,7 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
         {infoText}
       </div>
 
-      <form action="#" className="signup-form__form">
+      <form action="#" className="signup-form__form" onSubmit={onSubmit}>
         <div className="signup-form__name-container">
           <TextInput
             isRequired={true}
@@ -58,7 +83,10 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
           onChange={onChange}
         />
         <div className="signup-form__submit-container">
-          <button className="btn btn--medium btn--turquoise signup-form__submit-btn">
+          <button
+            type="submit"
+            className="btn btn--medium btn--turquoise signup-form__submit-btn"
+          >
             {btnLabel || 'Stay in touch!'}
           </button>
         </div>
