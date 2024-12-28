@@ -58,6 +58,22 @@ export function formatBlogArticles(data) {
     }));
 }
 
+export async function fetchSingleEvent(eventID) {
+  const eventData = await fetchDataFromAPI(`events/${eventID}?populate=deep`);
+  const {
+    attributes: { name, description, startingDate, endDate, image },
+  } = eventData;
+  const imageUrl = getImageUrl(image);
+
+  return {
+    name,
+    description,
+    startingDate,
+    endDate,
+    imageUrl,
+  };
+}
+
 export function getImageUrl(image) {
   return IMG_URL + image.data.attributes.url;
 }

@@ -33,11 +33,15 @@ export default async function BlogSlugPage({ params }) {
 }
 
 export async function generateStaticParams() {
-  const articles = await fetchDataFromAPI('blog-articles');
+  try {
+    const articles = await fetchDataFromAPI('blog-articles');
 
-  return articles.map((article) => ({
-    slug: article.attributes.slug,
-  }));
+    return articles.map((article) => ({
+      slug: article.attributes.slug,
+    }));
+  } catch (error) {
+    console.error('Error fetching slugs for blog articles', error);
+  }
 }
 
 export const revalidate = REVALIDATE_TIME; // 24 hours

@@ -3,6 +3,7 @@
 import { API_URL } from '@/utils/constants';
 import { useState } from 'react';
 import TextInput from '../TextInput';
+import ReactMarkdown from 'react-markdown';
 
 export default function SignupForm({ headline, infoText, btnLabel }) {
   const [formData, setFormData] = useState({
@@ -60,7 +61,11 @@ export default function SignupForm({ headline, infoText, btnLabel }) {
     <section className="signup-form">
       <div className="signup-form__info">
         <h3 className="signup-form__headline">{headline}</h3>
-        {infoText}
+        {typeof infoText === 'string' ? (
+          <ReactMarkdown className="copy">{infoText}</ReactMarkdown>
+        ) : (
+          infoText
+        )}
       </div>
 
       {showConfirmation ? (
