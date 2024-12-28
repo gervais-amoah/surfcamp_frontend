@@ -75,6 +75,7 @@ export default function SubscribeToNewsletter() {
               type="email"
               placeholder="Enter your email address"
               className="newsletter__input input"
+              required
               value={email}
               disabled={loading}
               onChange={(e) => setEmail(e.target.value)}
