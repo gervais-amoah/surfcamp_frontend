@@ -4,12 +4,13 @@ import { API_URL } from '@/utils/constants';
 import { useState } from 'react';
 import TextInput from '../TextInput';
 import Image from 'next/image';
+import { generateEventSignupPayload } from '@/utils/strapi.utils';
 
 export default function SignupForm({
+  eventID,
   headline,
   infoText,
   btnLabel,
-  path,
   date,
   pricing,
   featuredImage,
@@ -26,37 +27,35 @@ export default function SignupForm({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const clearForm = () => {
+    setShowConfirmation(true);
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+    });
+
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 4000);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    const payload = generateEventSignupPayload(formData, eventID);
 
     try {
-      const participant = await fetch(`${API_URL}/${path}`, {
+      const participant = await fetch(`${API_URL}/participants`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          data: {
-            ...formData,
-            isGeneralInterest: true,
-          },
-        }),
+        body: JSON.stringify(payload),
       });
-      if (participant.ok) {
-        setShowConfirmation(true);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-        });
 
-        setTimeout(() => {
-          setShowConfirmation(false);
-        }, 4000);
-      } else {
-        alert('Something went wrong. Please try again later.');
-      }
+      if (participant.ok) clearForm();
+      else alert('Something went wrong. Please try again later.');
     } catch (err) {
       console.error(err);
       const errorMessage = err.response?.data?.error?.message;

@@ -38,6 +38,7 @@ export default async function SingleEventPage({ params }) {
         pricing={pricing}
         date={date}
         featuredImage={imageUrl}
+        eventID={Number(eventID)}
       />
     </div>
   );

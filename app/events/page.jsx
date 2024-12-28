@@ -1,4 +1,5 @@
 import SignupForm from '@/app/_components/Events/SignupForm';
+import { API_URL } from '@/utils/constants';
 
 export default function EventsPage() {
   const headline = 'You want to stay tuned for our events?';
@@ -40,6 +41,7 @@ export default function EventsPage() {
       </p>
     </>
   );
+
   return (
     <div className="events-page">
       <SignupForm headline={headline} infoText={infoText} />

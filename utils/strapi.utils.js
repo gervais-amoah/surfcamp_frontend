@@ -84,6 +84,17 @@ export async function fetchSingleEvent(eventID) {
   };
 }
 
+export function generateEventSignupPayload(formData, eventID) {
+  return {
+    data: {
+      ...formData,
+      ...(eventID
+        ? { events: { connect: [eventID] } }
+        : { isGeneralInterest: true }),
+    },
+  };
+}
+
 export function getImageUrl(image) {
   return IMG_URL + image.data.attributes.url;
 }
