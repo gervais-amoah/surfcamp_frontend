@@ -64,7 +64,7 @@ export function generateEventSignupPayload(formData, eventID) {
   };
 }
 
-export async function fetchAllFutureEvents(limit) {
+export async function fetchAllFutureEvents({ limit, eventToExclude = null }) {
   const query = qs.stringify(
     {
       pagination: {
@@ -75,6 +75,7 @@ export async function fetchAllFutureEvents(limit) {
         startingDate: {
           $gt: new Date(),
         },
+        id: eventToExclude ? { $ne: eventToExclude } : {},
       },
       sort: ['startingDate:asc'],
       populate: {

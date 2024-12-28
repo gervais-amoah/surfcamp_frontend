@@ -1,6 +1,11 @@
 import SignupForm from '@/app/_components/Events/SignupForm';
+import FeaturedItems from '@/app/_components/FeaturedItems/FeaturedItems';
 import { REVALIDATE_TIME } from '@/utils/constants';
-import { fetchDataFromAPI, fetchSingleEvent } from '@/utils/strapi.utils';
+import {
+  fetchAllFutureEvents,
+  fetchDataFromAPI,
+  fetchSingleEvent,
+} from '@/utils/strapi.utils';
 import ReactMarkdown from 'react-markdown';
 
 export default async function SingleEventPage({ params }) {
@@ -14,6 +19,11 @@ export default async function SingleEventPage({ params }) {
     sharedPrice,
     imageUrl,
   } = await fetchSingleEvent(eventID);
+
+  const otherFutureEvents = await fetchAllFutureEvents({
+    limit: 7,
+    eventToExclude: Number(eventID),
+  });
 
   const infoText = (
     <ReactMarkdown className="copy">{description}</ReactMarkdown>
@@ -39,6 +49,11 @@ export default async function SingleEventPage({ params }) {
         date={date}
         featuredImage={imageUrl}
         eventID={Number(eventID)}
+      />
+      <FeaturedItems
+        headline="Explore other events"
+        items={otherFutureEvents}
+        type="events"
       />
     </div>
   );
