@@ -14,7 +14,8 @@ export default function FeaturedEvent({ event }) {
         />
       </div>
       <div className="featured-items__event-text">
-        <h5 className="copy-small bold">{event.startingDate}</h5>
+        <h5>{event.name}</h5>
+        <p className="copy-small bold">{event.startingDate}</p>
         <p className="copy-small">Prices starting at {event.startingPrice}</p>
       </div>
     </Link>
