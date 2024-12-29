@@ -1,31 +1,28 @@
 // MEDIA QUERY MANAGER
-/*
-0 - 900px:     Phone
-900 - 1200px:  Tablet landscape
-1200 - 1800px: Desktop
-1800px+:       Big desktop
-
-$breakpoint argument choices:
-- phone
-- tab-land
-- big-desktop
-
-1em = 16px
-*/
-@mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media (max-width: 56.25em) {
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: #{$breakpoint-xs}) {
       @content;
-    } // 900px;
-  }
-  @if $breakpoint == tab-land {
-    @media (max-width: 75em) {
+    }
+  } @else if $breakpoint == sm {
+    @media (max-width: #{$breakpoint-sm}) {
       @content;
-    } // 1200px
-  }
-  @if $breakpoint == big-desktop {
-    @media (min-width: 112.5em) {
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$breakpoint-md}) {
       @content;
-    } // 1800px
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$breakpoint-lg}) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$breakpoint-xl}) {
+      @content;
+    }
+  } @else if $breakpoint == xxl {
+    @media (max-width: #{$breakpoint-xxl}) {
+      @content;
+    }
   }
 }

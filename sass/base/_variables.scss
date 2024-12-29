@@ -12,3 +12,11 @@ $link-color: #0041e8;
 $red: #ff0000;
 
 $dm: 'DM Serif Display', serif;
+
+// SCSS Breakpoints
+$breakpoint-xs: 320px; // Extra small devices (e.g., phones)
+$breakpoint-sm: 576px; // Small devices (e.g., larger phones)
+$breakpoint-md: 768px; // Medium devices (e.g., tablets)
+$breakpoint-lg: 992px; // Large devices (e.g., desktops)
+$breakpoint-xl: 1200px; // Extra large devices (e.g., large desktops)
+$breakpoint-xxl: 1400px; // Extra extra large devices (e.g., ultra-wide screens)
