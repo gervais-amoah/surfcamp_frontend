@@ -3,26 +3,69 @@
   justify-content: space-between;
   padding-right: 4.8rem;
   margin-top: 8rem;
+  @include respond(xl) {
+    padding: 0 5rem;
+    flex-direction: column;
+  }
+  @include respond(md) {
+    padding: 0 3rem;
+  }
+  @include respond(sm) {
+    padding: 0 2rem;
+  }
 
   &--reversed {
     flex-direction: row-reverse;
     padding-left: 4.8rem;
     padding-right: 0;
+    @include respond(xl) {
+      padding-left: unset;
+      padding-right: unset;
+      padding: 0 5rem;
+      flex-direction: column;
+    }
+    @include respond(md) {
+      padding: 0 3rem;
+    }
+    @include respond(sm) {
+      padding: 0 2rem;
+    }
 
     & .info__image {
       border-radius: 329px 0px 0px 329px;
+      @include respond(xl) {
+        height: 20rem;
+        border-radius: 20rem;
+      }
+      @include respond(sm) {
+        height: 15rem;
+        border-radius: 10rem;
+      }
     }
   }
 
   &__image,
   &__text {
     width: 48%;
+
+    @include respond(xl) {
+      width: 100%;
+    }
   }
 
   &__image {
     position: relative;
     border-radius: 0px 329px 329px 0px;
     overflow: hidden;
+
+    @include respond(xl) {
+      height: 20rem;
+      border-radius: 20rem;
+    }
+    @include respond(sm) {
+      height: 15rem;
+      border-radius: 10rem;
+    }
 
     img {
       object-fit: cover;
@@ -32,6 +75,10 @@
   &__headline {
     margin-top: 4rem;
     margin-bottom: 3rem;
+    @include respond(sm) {
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
+    }
   }
 
   & .btn {
