@@ -20,10 +20,7 @@ export default async function SingleEventPage({ params }) {
     imageUrl,
   } = await fetchSingleEvent(eventID);
 
-  const otherFutureEvents = await fetchAllFutureEvents({
-    limit: 7,
-    eventToExclude: Number(eventID),
-  });
+  const otherFutureEvents = await fetchAllFutureEvents(7, Number(eventID), {});
 
   const infoText = (
     <ReactMarkdown className="copy">{description}</ReactMarkdown>

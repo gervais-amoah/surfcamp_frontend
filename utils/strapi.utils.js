@@ -64,12 +64,12 @@ export function generateEventSignupPayload(formData, eventID) {
   };
 }
 
-export async function fetchAllFutureEvents({ limit, eventToExclude = null }) {
+export async function fetchAllFutureEvents(limit = 12, eventToExclude = null) {
   const query = qs.stringify(
     {
       pagination: {
         start: 0,
-        limit: limit || 12,
+        limit: limit,
       },
       filters: {
         startingDate: {
