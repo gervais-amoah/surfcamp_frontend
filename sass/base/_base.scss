@@ -70,3 +70,11 @@ html {
   font-size: 1.6rem;
   margin-top: 1.6rem;
 }
+
+.hide-on {
+  &-lg {
+    @include respond(lg) {
+      display: none;
+    }
+  }
+}
