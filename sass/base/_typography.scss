@@ -12,12 +12,12 @@ h1 {
   line-height: 12rem;
   font-weight: 500;
 
-  @include respond-to(md) {
+  @include respond(md) {
     font-size: 5rem;
     line-height: 7rem;
   }
 
-  @include respond-to(sm) {
+  @include respond(sm) {
     font-size: 3rem;
     line-height: 4rem;
   }
