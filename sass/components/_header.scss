@@ -99,9 +99,9 @@
         background-color: $white;
       }
       @include respond(sm) {
-        right: 0;
-        padding: 3rem 2.5rem;
-        width: calc(100% - 2rem);
+        right: 1.5rem;
+        padding: 3rem 2rem;
+        width: calc(100% - 3rem);
       }
 
       &__list {
