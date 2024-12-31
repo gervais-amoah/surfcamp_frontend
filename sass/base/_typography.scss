@@ -52,12 +52,21 @@ h4 {
 
 h5 {
   font-size: 3rem;
+  @include respond(md) {
+    font-size: 2rem;
+  }
 }
 
 .copy {
   font-size: 2rem;
+  @include respond(md) {
+    font-size: 1.5rem;
+  }
 }
 
 .copy-small {
   font-size: 1.5rem;
+  @include respond(md) {
+    font-size: 1.2rem;
+  }
 }
