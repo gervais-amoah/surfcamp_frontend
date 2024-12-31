@@ -8,9 +8,17 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    column-gap: 1.25%;
+    column-gap: 2%;
     row-gap: 6rem;
     margin-bottom: 6rem;
+    @include respond(md) {
+      column-gap: 5%;
+      row-gap: 4rem;
+    }
+    @include respond(sm) {
+      column-gap: 0;
+      row-gap: 3rem;
+    }
   }
 
   &__headline {
@@ -22,7 +30,13 @@
   &__event {
     display: flex;
     flex-direction: column;
-    width: 32.5%;
+    width: 31%;
+    @include respond(md) {
+      width: 47.5%;
+    }
+    @include respond(sm) {
+      width: 100%;
+    }
 
     &-img {
       position: relative;
@@ -45,16 +59,19 @@
       background-color: $light-brown;
       border-radius: 0 0 2rem 2rem;
       flex-grow: 1;
-    }
-  }
+      @include respond(sm) {
+        padding: 2rem;
+      }
 
-  &__event-text {
-    & h5 {
-      margin-bottom: 3rem;
-    }
-    & .bold {
-      margin-top: auto;
-      margin-bottom: 0.5rem;
+      h5 {
+        margin-bottom: 3rem;
+        @include respond(sm) {
+          margin-bottom: 1.3rem;
+        }
+      }
+      .bold {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }
