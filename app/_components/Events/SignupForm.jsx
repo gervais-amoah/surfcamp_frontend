@@ -1,6 +1,6 @@
 'use client';
 
-import { API_URL } from '@/utils/constants';
+import { API_URL, CURRENCY_SYMBOL } from '@/utils/constants';
 import { useState } from 'react';
 import TextInput from '../TextInput';
 import Image from 'next/image';
@@ -141,11 +141,17 @@ export default function SignupForm({
             <h3>Pricing</h3>
             <p className="copy">
               Single Room:{' '}
-              <span className="bold">{pricing.singlePrice}€ per person</span>
+              <span className="bold">
+                {pricing.singlePrice}
+                {CURRENCY_SYMBOL} per person
+              </span>
             </p>
             <p className="copy">
               Shared Room:{' '}
-              <span className="bold">{pricing.sharedPrice}€ per person</span>
+              <span className="bold">
+                {pricing.sharedPrice}
+                {CURRENCY_SYMBOL} per person
+              </span>
             </p>
           </div>
         )}

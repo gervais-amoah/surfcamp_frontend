@@ -1,3 +1,4 @@
+import { CURRENCY_SYMBOL } from '@/utils/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -16,7 +17,10 @@ export default function FeaturedEvent({ event }) {
       <div className="featured-items__event-text">
         <h5>{event.name}</h5>
         <p className="copy-small bold">{event.startingDate}</p>
-        <p className="copy-small">Prices starting at {event.startingPrice}</p>
+        <p className="copy-small">
+          Prices starting at {event.startingPrice}
+          {CURRENCY_SYMBOL}
+        </p>
       </div>
     </Link>
   );
