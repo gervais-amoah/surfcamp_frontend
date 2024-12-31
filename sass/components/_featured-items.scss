@@ -24,6 +24,9 @@
   &__headline {
     margin-bottom: 6rem;
     margin-right: auto;
+    @include respond(sm) {
+      margin-bottom: 4rem;
+    }
   }
 
   &__article,
