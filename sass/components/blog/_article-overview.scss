@@ -3,10 +3,13 @@
   justify-content: space-between;
   margin-top: 4rem;
   margin-bottom: 12rem;
-
-  &__info {
-    width: 60%;
+  @include respond(xl) {
+    margin-top: 8rem;
   }
+
+  // &__info {
+  //   width: 60%;
+  // }
 
   &__headlines {
     padding-top: 17rem;
