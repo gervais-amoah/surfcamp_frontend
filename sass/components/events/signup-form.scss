@@ -2,22 +2,31 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 6rem;
+  @include respond(sm) {
+    gap: 6rem;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
 
   &__headline {
     margin-bottom: 3rem;
   }
 
+  &__info,
+  &__form {
+    width: 47%;
+    @include respond(sm) {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
   &__info {
-    width: 49%;
-
     & .copy:not(:last-of-type) {
       margin-bottom: 1.6rem;
     }
   }
 
   &__form {
-    width: 45%;
-
     & .input {
       width: 100%;
     }
@@ -73,5 +82,15 @@
     display: flex;
     gap: 10rem;
     margin-bottom: 10rem;
+    @include respond(sm) {
+      margin-bottom: 6rem;
+      gap: 0;
+      flex-direction: column;
+
+      h3 {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+      }
+    }
   }
 }
