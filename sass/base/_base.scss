@@ -78,3 +78,40 @@ html {
     }
   }
 }
+
+.errorPage {
+  width: 100%;
+  height: calc(100vh - 13rem);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include respond(lg) {
+    align-items: start;
+  }
+
+  h1 {
+    font-size: 5.6rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 6rem;
+    margin-bottom: 1.6rem;
+    @include respond(sm) {
+      font-size: 3.5rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+  p {
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    @include respond(lg) {
+      text-align: left;
+    }
+    @include respond(sm) {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

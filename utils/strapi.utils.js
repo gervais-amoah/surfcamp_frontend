@@ -10,7 +10,7 @@ export async function fetchDataFromAPI(route) {
       cache: 'no-cache',
     }).then((res) => res.json());
 
-    return data?.data || [];
+    return data?.data;
   } catch (error) {
     console.error(error);
     throw new Error(`Failed to fetch data from ${url}`);
