@@ -94,7 +94,7 @@ export async function fetchAllFutureEvents(limit = 12, eventToExclude = null) {
 }
 
 export function formatInfoBlocks(data) {
-  const rawArr = data?.attributes?.info_blocks?.data;
+  const rawArr = data?.attributes?.info_blocks?.data || [];
   return rawArr.map((block) => ({
     id: block.id,
     headline: block.attributes.headline,
