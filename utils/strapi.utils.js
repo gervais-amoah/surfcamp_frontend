@@ -105,23 +105,28 @@ export function formatInfoBlocks(data) {
   }));
 }
 export function formatBlogArticles(data) {
-  return data
-    .sort(
-      (a, b) =>
-        new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt)
-    )
-    .map((article) => ({
-      id: article.id,
-      headline: article.attributes.headline,
-      author: article.attributes.author,
-      excerpt: article.attributes.excerpt,
-      slug: article.attributes.slug,
-      date: moment(article.attributes.publishedAt).format('dddd, Do MMMM YYYY'),
-      isHighlightArcticle: article.attributes.isHighlightArcticle,
-      featuredImage:
-        IMG_URL + article.attributes.featuredImage.data.attributes.url,
-      articleContent: article.attributes.articleContent,
-    }));
+  return (
+    data
+      .sort(
+        (a, b) =>
+          new Date(b.attributes.publishedAt) -
+          new Date(a.attributes.publishedAt)
+      )
+      .map((article) => ({
+        id: article.id,
+        headline: article.attributes.headline,
+        author: article.attributes.author,
+        excerpt: article.attributes.excerpt,
+        slug: article.attributes.slug,
+        date: moment(article.attributes.publishedAt).format(
+          'dddd, Do MMMM YYYY'
+        ),
+        isHighlightArcticle: article.attributes.isHighlightArcticle,
+        featuredImage:
+          IMG_URL + article.attributes.featuredImage.data.attributes.url,
+        articleContent: article.attributes.articleContent,
+      })) || []
+  );
 }
 export function formatEvents(data) {
   return data.map((event) => ({
