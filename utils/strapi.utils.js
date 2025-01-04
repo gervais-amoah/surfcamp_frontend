@@ -90,7 +90,7 @@ export async function fetchAllFutureEvents(limit = 12, eventToExclude = null) {
   const res = await fetch(`${API_URL}/events?${query}`).then((res) =>
     res.json()
   );
-  return formatEvents(res.data);
+  return formatEvents(res.data ?? []);
 }
 
 export function formatInfoBlocks(data) {
