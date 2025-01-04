@@ -129,16 +129,18 @@ export function formatBlogArticles(data) {
   );
 }
 export function formatEvents(data) {
-  return data.map((event) => ({
-    id: event.id,
-    name: event.attributes.name,
-    description: event.attributes.description,
-    startingPrice: event.attributes.singlePrice,
-    startingDate: moment(event.attributes.publishedAt).format(
-      'dddd, MMMM Do, YYYY'
-    ),
-    featuredImage: IMG_URL + event.attributes.image.data.attributes.url,
-  }));
+  return (
+    data.map((event) => ({
+      id: event.id,
+      name: event.attributes.name,
+      description: event.attributes.description,
+      startingPrice: event.attributes.singlePrice,
+      startingDate: moment(event.attributes.publishedAt).format(
+        'dddd, MMMM Do, YYYY'
+      ),
+      featuredImage: IMG_URL + event.attributes.image.data.attributes.url,
+    })) || []
+  );
 }
 
 export function getImageUrl(image) {
