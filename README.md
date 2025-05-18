@@ -25,22 +25,22 @@ It serves as a showcase site for a fictional surf company, featuring upcoming ev
 
 ## 📸 Screenshots
 ### 📝 Blog Article Page
-A sample article page fetched from the Strapi CMS.
+> A sample article page fetched from the Strapi CMS.
 
 ![image](https://github.com/user-attachments/assets/1cf7ccf5-e8c1-4332-83a6-7c4c3311e99c)
 
 ### 🗓️ Event Page with Signup Form
-Displays the current surf event's content with a form to subscribe for updates.
+> Displaying the current surf event's content with a form to subscribe for updates.
 
 ![image](https://github.com/user-attachments/assets/6c3f1221-fd20-44ff-96ae-49a2f56c86e5)
 
 ### ✉️ Subscription Form Section
-Visitors can sign up to receive notifications about new events.
+> Visitors can sign up to receive notifications about new events.
 
 ![image](https://github.com/user-attachments/assets/9a6d3a71-a50f-47f3-aa15-825ef89fa8f3)
 
 ### 🌊 Upcoming Events + Footer
-A preview of the upcoming events section and the website footer.
+> A preview of the upcoming events section and the website footer.
 
 ![image](https://github.com/user-attachments/assets/3b65995d-a94e-47da-a66c-ecc2a7a9cc8e)
 
@@ -71,9 +71,7 @@ Make sure to:
 
   Launch the **Next.js** frontend to fetch and display content
 
-## 🔗 Repositories
-
-Frontend (Next.js): *current repo*
+## 🔗 Related Repositories
 
 Backend (Strapi): [surfcamp_strapi](https://github.com/gervais-amoah/surfcamp_strapi)
 
